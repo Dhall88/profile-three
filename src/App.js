@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { HashRouter, NavLink, Route } from 'react-router-dom';
+import Three from './components/three';
+// import Magic from './components/magic';
+// import Admin from './components/admin'
+import "./App.css"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+
+
+
+	return (
+
+			<HashRouter>
+					<Route path="/" exact component={Three} />
+					<Route path="/profile" exact component={Profile} />
+			</HashRouter>
+		
+	);
 }
 
 export default App;
