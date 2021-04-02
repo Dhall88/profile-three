@@ -1,11 +1,13 @@
 import React from "react";
 import Lights from './scene/lights';
-// import Terrain from "./Terrain/terrain";
+import Banner from "./scene/banner";
+import {Stars, Sky} from "@react-three/drei"
 
 const Scene = () => (
   <>
+    <Stars/>
     <Lights />
-    {/* <Terrain /> */}
+    <Banner />
   </>
 );
 

@@ -13,7 +13,7 @@ const App = () => {
 
 			<HashRouter>
 					<Route path="/" exact component={Three} />
-					<Route path="/profile" exact component={Profile} />
+					{/* <Route path="/profile" exact component={Profile} /> */}
 			</HashRouter>
 		
 	);
