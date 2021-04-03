@@ -6,7 +6,7 @@ import img from './kitten.jpg'
 // import img from './kitten.jpg'
 
 
-const Banner = () => {
+const Banner = (props) => {
 
   const mesh = useRef();
 
@@ -21,9 +21,9 @@ const Banner = () => {
   function Image() {
     const texture = useLoader(TextureLoader, img)
     return (
-        <group rotation={[0, Math.PI/6, 0]}>
+        <group rotation={[props.angle.x, props.angle.y, props.angle.z]}>
       <mesh rotation={[-Math.PI, 0, Math.PI]} position={[0,0,50]}>
-        <planeBufferGeometry attach="geometry" args={[25,25]} />
+        <planeBufferGeometry attach="geometry" args={[35,35]} />
         <meshBasicMaterial attach="material" map={texture} />
       </mesh>
       </group>
