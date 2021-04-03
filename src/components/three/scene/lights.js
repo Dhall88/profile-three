@@ -1,5 +1,5 @@
 import React, {useRef} from "react";
-import {useResource} from "@react-three/fiber"
+import {useResource, useFrame} from "@react-three/fiber"
 import {  useHelper } from "@react-three/drei";
 import {
     CameraHelper,
@@ -10,8 +10,7 @@ import {
 
  const Lights = () => {
 
-    const light1 = useRef();
-    const light2 = useRef();
+    const mesh = useRef();
 
     console.log("in lights")
 
@@ -19,30 +18,33 @@ import {
   return (
     <group>
 
-<mesh>
+{/* <mesh>
       <sphereBufferGeometry attach="geometry" args={[0.7, 250, 250]} />
       <meshBasicMaterial attach="material" color={0xfff1ef} />
-    </mesh>
+    </mesh> */}
     
-      <ambientLight ref={light2} position={[0, 4, 0]} intensity={0.3} />
+      {/* <ambientLight ref={light2} position={[0, 4, 0]} intensity={0.3} /> */}
 
-      <directionalLight intensity={0.5} position={[0, 0, 0]} color={0xffffff} />
+      {/* <directionalLight intensity={0.5} position={[0, 0, 0]} color={0xffffff} /> */}
 
-      <pointLight
-        ref={light1}
-        intensity={1}
-        position={[-6, 3, -6]}
+      <directionalLight
+        // ref={light1}
+        intensity={2}
+        position={[0, 15, 200]}
         color={0xffcc77}
+        // decay={100}
+      >
+      </directionalLight>
+      <pointLight
+        // ref={light2}
+        intensity={2}
+        position={[0, 0, 100]}
+        color={0xffcc77}
+        // decay={100}
       >
       </pointLight>
 
-      <pointLight
-        ref={light2}
-        intensity={1}
-        position={[6, 3, 6]}
-        color={0xffcc77}
-      >
-      </pointLight>
+      {/* {console.log(light1)} */}
     </group>
   );
 };

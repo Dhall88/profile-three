@@ -1,5 +1,5 @@
 import React, {useRef, Suspense} from "react";
-import {useResource, useLoader} from "@react-three/fiber"
+import {useResource, useLoader, useFrame} from "@react-three/fiber"
 import {  useHelper } from "@react-three/drei";
 import {
     CameraHelper,
@@ -12,17 +12,23 @@ import {
   import moonTexture from "./moon-texture.jpg"
   import moonDisplacement from "./moon-displacement.jpg"
 
+
   
   const Sun = () => {
-    const light=useRef()
+    const mesh=useRef()
+
+    useFrame(()=> {
+        console.log(mesh.current.rotation)
+        mesh.current.rotation.x+=.001
+    })
 
     console.log('moon')
     const texture = useLoader(TextureLoader, moonTexture)
     const displacement = useLoader(TextureLoader, moonDisplacement)
 return ( 
 
-<mesh position={[0,50,0]}>
-      <sphereBufferGeometry attach="geometry" args={[20, 200, 200]} />
+<mesh ref={mesh} position={[0,100,0]} rotation={[Math.PI/2,0,0]}>
+      <sphereBufferGeometry attach="geometry" args={[40, 200, 200]} />
       <meshPhongMaterial 
       attach="material"
       color= {0xffffff}
