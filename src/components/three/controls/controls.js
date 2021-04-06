@@ -10,10 +10,16 @@ const Controls = () => {
 
     camera.lookAt(0,0,10)
 
-    console.log(camera)
+    // console.log(camera)
+    // const {raycaster} = useThree();
 
+    useFrame(() => {
+        // console.log(raycaster)
+    })
+    // const {camera} = useThree();
   return <>
-  <PointerLockControls />
+  <PointerLockControls camera={camera}/>
+  
   </>
 };
 

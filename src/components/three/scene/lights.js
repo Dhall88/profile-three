@@ -31,7 +31,7 @@ import {
         // ref={light1}
         intensity={2}
         position={[0, 15, 200]}
-        color={0xffcc77}
+        color={0xffffff}
         // decay={100}
       >
       </directionalLight>
@@ -39,7 +39,7 @@ import {
         // ref={light2}
         intensity={2}
         position={[0, 0, 100]}
-        color={0xffcc77}
+        color={0xffffff}
         // decay={100}
       >
       </pointLight>

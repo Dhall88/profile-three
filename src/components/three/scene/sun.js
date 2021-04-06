@@ -18,16 +18,15 @@ import {
     const mesh=useRef()
 
     useFrame(()=> {
-        console.log(mesh.current.rotation)
+
         mesh.current.rotation.x+=.001
     })
 
-    console.log('moon')
     const texture = useLoader(TextureLoader, moonTexture)
     const displacement = useLoader(TextureLoader, moonDisplacement)
 return ( 
 
-<mesh ref={mesh} position={[0,100,0]} rotation={[Math.PI/2,0,0]}>
+<mesh ref={mesh} position={[0,100,0]} rotation={[0,0,Math.PI/2]}>
       <sphereBufferGeometry attach="geometry" args={[40, 200, 200]} />
       <meshPhongMaterial 
       attach="material"

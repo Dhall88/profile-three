@@ -1,14 +1,15 @@
-import React, {useEffect, useRef, Suspense} from "react";
+import React, {useEffect, useRef, Suspense, useState} from "react";
 import { useFrame, useLoader } from "@react-three/fiber";
 import {useTexture} from "@react-three/drei";
 import {TextureLoader} from "three"
-import img from './kitten.jpg'
-// import img from './kitten.jpg'
+
 
 
 const Banner = (props) => {
 
   const mesh = useRef();
+  const [hovered, setHover] = useState(false)
+  const [active, setActive] = useState(false)
 
   // Raf loop
   useFrame(() => {
@@ -19,11 +20,16 @@ const Banner = (props) => {
 
   
   function Image() {
-    const texture = useLoader(TextureLoader, img)
+    const texture = useLoader(TextureLoader, props.image)
     return (
-        <group rotation={[props.angle.x, props.angle.y, props.angle.z]}>
-      <mesh rotation={[-Math.PI, 0, Math.PI]} position={[0,0,50]}>
-        <planeBufferGeometry attach="geometry" args={[35,35]} />
+        <group  rotation={[props.x, props.y, props.z]} 
+
+                >
+      <mesh rotation={[-Math.PI, 0, Math.PI]} position={[0,0,50]} scale={hovered ? 1.1 : 1}
+                      onPointerOver={() => setHover(true)}
+                      onPointerOut={() => setHover(false)}
+                      onClick={(e) => console.log(e)}>
+        <planeBufferGeometry attach="geometry" args={[40,25]} />
         <meshBasicMaterial attach="material" map={texture} />
       </mesh>
       </group>
